@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Tableau from './Component/Tableau';
+import { block$ } from './block';
 import './App.css';
 
 function App() {
+  const [block, Setblock] = useState([])
+
+  useEffect(() => {
+
+    async function fetchData() {
+      await block$.then(response => {
+        Setblock(response)
+      }).catch(error => {
+        console.log(error)
+      })
+    }
+
+    fetchData();
+
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tableau arrays={block} />
     </div>
   );
 }

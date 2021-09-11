@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-color: black;
+  width: 100%;
+  }
+
+  th {
+      background-color: black;
+      color: white;
+  }
+
+  td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 15px;
+
+  }
+
+  tr:nth-child(even) {
+  background-color: #dddddd;
+  }
